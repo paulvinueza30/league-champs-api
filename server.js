@@ -1,6 +1,4 @@
 
-const { response } = require('express');
-
 const express = require('express');
 
 const cors= require('cors')
@@ -10,6 +8,8 @@ const app = express()
 app.use(cors())
 
 const PORT = process.env.port || 8000
+
+app.listen(PORT, () => console.log(`Hello world app listening on port ${PORT}!`))
 
 const myJungleChamps = {
 "diana" : {
@@ -71,5 +71,3 @@ const champName = req.params.name.toLowerCase()
 myJungleChamps[champName] ? res.json(myJungleChamps[champName]) : res.json(`${champName} not found`)
 
 });
-
-app.listen(PORT, () => console.log(`Hello world app listening on port ${PORT}!`))
